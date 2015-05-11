@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+      html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
+      ul,li{max-width:200px;word-wrap:break-word;}
+      .filters {
+        width: 250px;
+        height: 100px;
+        background: light blue;
+        border: 0px
+      }
+    </style>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+
+  </head>
+  <body>
+
+  <div id="map-canvas"></div>
+
+  <div style="position:absolute; top:0; margin:20px; right:0;" >
+
+
+    <input type="text" id="search" value="">
+    <button  onclick="searchClick()">Search</button>
+
+     <div class="filters">
+       <h3>Filters:</h3>
+      <label><input type="radio" name="filters"  onclick="filterClick(this,'all')" checked="true" /> All</label>
+      <label><input type="radio" name="filters"  onclick="filterClick(this,'park')" /> Parks </label>
+      <label><input type="radio" name="filters"  onclick="filterClick(this,'museum')" />  Museums </label>
+    </div>
+
+    <h2>List of major Chicago attractions </h2>
+    <ul  data-bind="foreach: attractionsList">
+        <li data-bind="text: name, click: setAttraction"></li>
+    </ul>
+
+    <div class="wikipedia-container">
+        <ul id="wikipedia-links"></ul>
+   </div>
+  </div>
+
+<script src="js/lib/knockout-3.3.0.js"></script>
+<script src="js/lib/jquery.min.js"></script>
+<script src="js/app.js"></script>
+
+
+</body>
+</html>
